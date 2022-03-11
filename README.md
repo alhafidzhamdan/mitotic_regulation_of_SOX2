@@ -5,9 +5,10 @@ This repository contains the scripts used to analyse the ChIP-seq data from the 
 #### Step 2: Trim adaptors +/- demultiplexing + repeat QC
 #### Step 3: Align to a reference genome
 #### Step 4: QC alignment
-#### Step 5: Coverage tracks
-#### Step 6: Call peaks
-#### Step 7: Downstream analyses
+#### Step 5: Filter duplicated and blacklisted regions
+#### Step 6: Generate coverage tracks
+#### Step 7: Call peaks +/- merge replicates + QC +/- IDR
+#### Step 8: Downstream analyses
 
 
 
