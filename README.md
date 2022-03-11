@@ -1,4 +1,4 @@
-This repository contains the scripts used to analyse the ChIP-seq data from the paper **Mitotic Regulation of SOX2** (preprint ...)
+This repository contains the scripts used to analyse the ChIP-seq data in the paper **Mitotic Regulation of SOX2** (preprint ...)
 
 #### Step 1: QC fastq files
 `qsub -t 1-N -tc N submit_fastqc.sh <DIR> <IDS>`
