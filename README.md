@@ -13,7 +13,7 @@ This repository contains the scripts used to analyse the ChIP-seq data from the 
 #### Step 6: Generate coverage tracks
 `qsub -t 1-N -tc N submit_bamCoverage.sh <CONFIG> <IDS>`
 #### Step 7: Call peaks +/- merge replicates + QC +/- IDR
-`qsub -t 1-N -tc N submit_macs2IDR.sh <CONFIG> <IDS> <CHIP> <BATCH>
+`qsub -t 1-N -tc N submit_macs2IDR.sh <CONFIG> <IDS> <CHIP> <BATCH>`
 #### Step 8: Downstream analyses
 
 
