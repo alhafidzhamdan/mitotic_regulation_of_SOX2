@@ -3,8 +3,12 @@ This repository contains the scripts used to analyse the ChIP-seq data from the 
 #### Step 1: QC fastq files
 `qsub -t 1-n -tc N submit_fastqc.sh <DIR> <IDS>`
 #### Step 2: Trim adaptors +/- demultiplexing + repeat QC
+`qsub -t 1-N submit_fastp.sh IDS`
 #### Step 3: Align to a reference genome
+`qsub -t 1-n submit_bwa.sh CONFIG IDS`
+
 #### Step 4: QC alignment
+
 #### Step 5: Filter duplicated and blacklisted regions
 #### Step 6: Generate coverage tracks
 #### Step 7: Call peaks +/- merge replicates + QC +/- IDR
