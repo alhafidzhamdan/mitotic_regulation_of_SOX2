@@ -16,6 +16,7 @@ BAM_DIR=$4
 source $CONFIG
 
 SAMPLE_ID=`head -n $SGE_TASK_ID $IDS | tail -n 1 | cut -f 8`
+BWA_REF=/exports/igmm/eddie/Glioblastoma-WGS/resources/refgenome_mmusculus/mm10.fa.gz
 
 cd $READ_DIR
 
