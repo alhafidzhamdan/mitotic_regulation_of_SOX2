@@ -5,7 +5,7 @@ All the bash/R scripts can be found in the folder **scripts**
 #### Step 1: QC fastq files
 `qsub -t 1-N -tc N submit_fastqc.sh <CONFIG> <DIR> <IDS>`
 #### Step 2: Trim adaptors +/- demultiplexing + repeat QC
-`qsub -t 1-N submit_fastp.sh <IDS> <RAW> <CLEANED> <SUFFIX> `
+`qsub -t 1-N submit_fastp.sh <IDS> <RAW_OUTPUT_DIR> <CLEANED_OUTPUT_DIR> <QC_DIR> <SUFFIX>`
 #### Step 3: Align to a reference genome
 `qsub -t 1-N -tc N submit_bwa.sh <CONFIG> <IDS>`
 #### Step 4: QC alignment
