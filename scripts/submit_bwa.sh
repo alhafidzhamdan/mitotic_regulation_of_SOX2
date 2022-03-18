@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# To run this script, do 
-# qsub -t 1-n submit_bwa.sh CONFIG IDS
-#
-# CONFIG is the path to the file scripts/config.sh which contains environment variables set to
-# commonly used paths and files in the script
-#
 #$ -N BWA
 #$ -j y
 #$ -S /bin/bash
