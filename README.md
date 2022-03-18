@@ -9,9 +9,9 @@ All the bash/R scripts can be found in the folder **scripts**
 #### Step 3: Align to a reference genome
 `qsub -t 1-N -tc N submit_bwa.sh <CONFIG> <IDS>`
 #### Step 4: QC alignment
-`qsub submit_plotCorrelation.sh <CONFIG> <BATCH>`
+`qsub submit_plotCorrelation.sh <BATCH> <BAM_DIR> <DEEPTOOLS_DIR>`
 #### Step 5: Generate coverage tracks
-`qsub -t 1-N -tc N submit_bamCoverage.sh <CONFIG> <IDS>`
+`qsub -t 1-N -tc N submit_bamCoverage.sh <IDS> <BAM_DIR> <COVERAGE_DIR>`
 #### Step 6: Filter duplicated and blacklisted regions
 `qsub -t 1-N -tc N submit_filter_bams.sh <CONFIG> <IDS>`
 #### Step 7: Call peaks +/- merge replicates + QC +/- IDR
