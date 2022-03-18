@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # To run this script, do 
-# qsub -t 1-n -tc N submit_fastqc.sh <DIR> <IDS>
+# qsub -t 1-n -tc N submit_fastqc.sh <CONFIG> <DIR> <IDS>
 # IDS point to lane fastq files
 #
 #$ -N fastqc
