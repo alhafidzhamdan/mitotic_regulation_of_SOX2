@@ -2,8 +2,6 @@
 
 # This script detects and filters out adaptor sequences from sequencing data
 # https://github.com/OpenGene/fastp
-# To run this script, do 
-# qsub -t 1-N submit_fastp.sh IDS
 #
 #$ -N fastp
 #$ -j y
@@ -16,19 +14,21 @@
 export PATH=/exports/igmm/eddie/Glioblastoma-WGS/anaconda/envs/snakemake/bin:$PATH
 
 IDS=$1
-BATCH=$2
+RAW_OUTPUT_DIR=$2
+CLEANED_OUTPUT_DIR=$3
+QC_DIR=$4
+SUFFIX=$5
 
-PATIENT_ID=`head -n $SGE_TASK_ID $IDS | tail -n 1 | cut -f 1`
-READ_OUTPUT=/exports/igmm/eddie/Glioblastoma-WGS/RNA-seq/raw/source/${BATCH}/fastqs/original
-CLEANED_OUTPUT=/exports/igmm/eddie/Glioblastoma-WGS/RNA-seq/raw/source/${BATCH}/fastqs/cleaned
-QC_DIR=/exports/igmm/eddie/Glioblastoma-WGS/RNA-seq/raw/source/${BATCH}/qc/fastp
+SAMPLE_ID=`head -n $SGE_TASK_ID $IDS | tail -n 1 | cut -f 1`
 
-echo "Detecting adaptor sequences and removing them..."
-fastp -i ${READ_OUTPUT}/${PATIENT_ID}_R1.fastq.gz -I ${READ_OUTPUT}/${PATIENT_ID}_R2.fastq.gz \
-     -o ${CLEANED_OUTPUT}/${PATIENT_ID}_R1.fastq.gz -O ${CLEANED_OUTPUT}/${PATIENT_ID}_R2.fastq.gz \
-     -h ${QC_DIR}/${PATIENT_ID}.fastp.html
+echo "Automatically detecting adaptor sequences and removing them..."
+fastp -i ${RAW_OUTPUT_DIR}/${SAMPLE_ID}_R1${SUFFIX}.fastq.gz -I ${RAW_OUTPUT_DIR}/${SAMPLE_ID}_R2${SUFFIX}.fastq.gz \
+     -o ${CLEANED_OUTPUT_DIR}/${SAMPLE_ID}_R1.fastq.gz -O ${CLEANED_OUTPUT_DIR}/${SAMPLE_ID}_R2.fastq.gz \
+     -h ${QC_DIR}/${SAMPLE_ID}.fastp.html
 
 echo "Performing fastqc on cleaned fastqs..."
 module load igmm/apps/FastQC/0.11.9
-fastqc -t 20 ${CLEANED_OUTPUT}/${PATIENT_ID}_R1.fastq.gz
-fastqc -t 20 ${CLEANED_OUTPUT}/${PATIENT_ID}_R2.fastq.gz
+fastqc -t 20 ${CLEANED_OUTPUT_DIR}/${SAMPLE_ID}_R1.fastq.gz
+fastqc -t 20 ${CLEANED_OUTPUT_DIR}/${SAMPLE_ID}_R2.fastq.gz
+
+
