@@ -26,3 +26,4 @@ samtools index $BAM_DIR/${SAMPLE_ID}.sorted.bam
 samtools flagstat $BAM_DIR/${SAMPLE_ID}.sorted.bam > $BAM_DIR/${SAMPLE_ID}.stats.out
 
 echo "Done!"
+
