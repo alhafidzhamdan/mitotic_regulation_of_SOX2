@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # To run this script, do 
-# qsub -t 1-n submit_filter_bams.sh CONFIG IDS
+# qsub -t 1-n submit_filterChip-seq.sh CONFIG IDS
 #
 # CONFIG is the path to the file scripts/config.sh which contains environment variables set to
 # commonly used paths and files in the script
@@ -19,11 +19,11 @@
 
 CONFIG=$1
 IDS=$2
+BAM_DIR=$3
 
 source $CONFIG
 
 SAMPLE_ID=`head -n $SGE_TASK_ID $IDS | tail -n 1`
-BAM_DIR=/exports/igmm/eddie/Glioblastoma-WGS/ChIP-seq/H3K27ac-seq_GBM/bams
 
 cd $BAM_DIR
 
@@ -53,6 +53,6 @@ samtools markdup $POSITION_FIXMATE_REP $MARKDUP_REP
 
 ## Filter blacklisted regions
 ## Peaks downloaded from https://github.com/Boyle-Lab/Blacklist/tree/master/lists
-bedtools intersect -v -a $MARKDUP_REP -b $BLACKLISTED_PEAKS > $FILTERED_REP
+bedtools intersect -v -a $MARKDUP_REP -b $BLACKLISTED_PEAKS_MM10 > $FILTERED_REP
 samtools sort -@ 10 -o $FINAL_REP $FILTERED_REP
 samtools index $FINAL_REP
