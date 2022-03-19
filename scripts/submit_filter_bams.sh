@@ -1,15 +1,12 @@
 #!/bin/bash
 
-# To run this script, do 
-# qsub -t 1-n submit_filterChip-seq.sh CONFIG IDS
-#
 # CONFIG is the path to the file scripts/config.sh which contains environment variables set to
 # commonly used paths and files in the script
 # IDS is a list of sample ids, one per line, where tumor and normal samples are designated by
 # the addition of a T or an N to the sample id.
 # TYPE is either sample name or input
 #
-#$ -N filterChip-seq
+#$ -N filter_bams
 #$ -j y
 #$ -S /bin/bash
 #$ -cwd
