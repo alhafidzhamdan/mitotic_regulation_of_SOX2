@@ -11,7 +11,7 @@ All the bash/R scripts can be found in the folder **scripts**
 #### Step 4: Generate coverage tracks
 `qsub -t 1-N -tc N submit_bamCoverage.sh <IDS> <BAM_DIR> <COVERAGE_DIR>`
 #### Step 5: Filter duplicated and blacklisted regions
-`qsub -t 1-N -tc N submit_filter_bams.sh <CONFIG> <IDS>`
+`qsub -t 1-N -tc N submit_filter_bams.sh <CONFIG> <IDS> <BAM_DIR>`
 #### Step 6: QC final alignment
 `qsub submit_plotCorrelation.sh <BATCH> <BAM_DIR> <DEEPTOOLS_DIR>`
 #### Step 7: Call peaks +/- merge replicates + QC +/- IDR
