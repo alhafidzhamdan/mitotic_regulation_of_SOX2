@@ -15,7 +15,7 @@ All the bash/R scripts can be found in the folder **scripts**
 #### Step 6: QC final alignment
 `qsub submit_plotCorrelation.sh <BATCH> <BAM_DIR> <DEEPTOOLS_DIR>`
 #### Step 7: Call peaks +/- merge replicates + QC +/- IDR
-`qsub -t 1-N -tc N submit_macs2IDR.sh <CONFIG> <IDS> <CHIP> <BATCH>`
+`qsub -t 1-N -tc N submit_macs2.sh <CONFIG> <IDS> <BAM_DIR> <OUTPUT_DIR>`
 #### Step 8: Downstream analyses
 
 
