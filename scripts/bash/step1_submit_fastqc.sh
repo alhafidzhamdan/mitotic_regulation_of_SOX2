@@ -21,6 +21,8 @@ CONFIG=$1
 IDS=$2
 DIR=$3
 
+## IDS points to a file that contains a list of all fastq files from the sequencer 
+
 FASTQ=`head -n $SGE_TASK_ID $IDS | tail -n 1`
 
 cd $DIR

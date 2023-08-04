@@ -13,10 +13,11 @@ IDS=$2
 READ_DIR=$3
 BAM_DIR=$4
 
+## IDS points to a file that contains a list of all fastq files from the sequencer 
+
 source $CONFIG
 
 SAMPLE_ID=`head -n $SGE_TASK_ID $IDS | tail -n 1 | cut -f 8`
-BWA_REF=/exports/igmm/eddie/Glioblastoma-WGS/resources/refgenome_mmusculus/mm10.fa.gz
 
 cd $READ_DIR
 
