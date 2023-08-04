@@ -1,3 +1,1 @@
-This repository contains the scripts used to analyse the ChIP-seq data in the paper **Mitotic Regulation of SOX2** (preprint ...)
-
-All the bash/R scripts can be found in the folder **scripts**
+This repository contains the scripts used to analyse the ChIP-seq data in the paper **Mitotic SOX2 phosphorylation limits genomic damage in neural stem cells** (preprint at ...)
